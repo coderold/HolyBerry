@@ -7,7 +7,6 @@ namespace HolyBerry
         public static void Main(string[] args)
         { 
             new MainMenu();
-
         }
     }
 }
