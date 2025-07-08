@@ -25,11 +25,7 @@ namespace HolyBerry
 
             Enemy grapeslime = new GrapeSlime();
 
-            grapeslime.Attack(player);
-
-            Console.ReadKey();
-
-            player.Attack(grapeslime);
+            new Battle(player, grapeslime);
         }
 
         

@@ -30,6 +30,28 @@ namespace HolyBerry
                                 "\r\n                                                               \r\n";
         }
 
+        public string GrapeSlime()
+        {
+            return "        ▓▓▓▓▓▓▓" +
+                "\r\n    ▓▓░░    ░░▓▓" +
+                "\r\n   ▓░  ●  ░  ● ░▓" +
+                "\r\n   ▓░    ▄▄     ░▓" +
+                "\r\n    ▓░  ▀▀    ░▓" +
+                "\r\n     ▓▓░░░░░░▓▓" +
+                "\r\n      ████████\r\n";
+        }
+
+        public string RottenRaspberry()
+        {
+            return  "          ████████      " +
+                    "\r\n   ██░ x  ░ x  ██   " +
+                    "\r\n  ██░    ██     ░██ " +
+                    "\r\n  ██░   ▀▀▀▀    ░██ " +
+                    "\r\n    ▀▀████████▀▀    " +
+                    "\r\n      ▒▒▒▒▒▒▒▒      " +
+                    "\r\n     \r\n";
+        }
+
         public void AboutScreen()
         {
             Console.Clear();

@@ -29,7 +29,7 @@ namespace HolyBerry
         {
             if (items.Count < 0)
             {
-                Console.WriteLine("\nItems:");
+                Console.WriteLine("\nInventory:");
                 for (int i = 0; i < items.Count; i++)
                 {
                     Console.WriteLine($"{i + 1}. {items[i].name}");
@@ -37,7 +37,7 @@ namespace HolyBerry
             }
             else
             {
-                Console.WriteLine("\nNo Items");
+                Console.WriteLine("\nInventory: \nYou dont have any items at the moment.");
             }
         }
     }

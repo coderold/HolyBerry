@@ -13,6 +13,8 @@ namespace HolyBerry
         public int AttackDamage { get; set; }
         public string AttackStyle { get; set; } = "";
         public string Dialog { get; set; } = "";
+        public int HitChance { get; set; }
+        public bool IsAlive { get; set; } = true;
 
         public void Attack(Player player)
         {
@@ -22,7 +24,12 @@ namespace HolyBerry
         public void takeDamaege(int damage)
         {
             HP -= damage;
-            Console.WriteLine($"{Name} has taken damage.\nHP: {HP}");
+            Console.WriteLine($"{Name} has taken damage.");
+
+            if( HP <= 0)
+            {
+                IsAlive = false;
+            }
         }
 
         public void sayDiaglog()
@@ -30,17 +37,17 @@ namespace HolyBerry
             Console.WriteLine($"{Name}: {Dialog}");
         }
 
-        public bool isAlive()
-        {
-            if (HP <= 0)
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
-        }
+        //public bool isAlive()
+        //{
+        //    if (HP <= 0)
+        //    {
+        //        return false;
+        //    }
+        //    else
+        //    {
+        //        return true;
+        //    }
+        //}
     }
 
     public class GrapeSlime: Enemy
@@ -52,6 +59,7 @@ namespace HolyBerry
             this.HP = 10;
             this.AttackDamage = 5;
             this.AttackStyle = "Melee Jab";
+            this.HitChance = 25;
             this.Dialog = "Legends lang nakakaalm haha.";
         }
 
@@ -66,6 +74,7 @@ namespace HolyBerry
             this.HP = 15;
             this.AttackDamage = 6;
             this.AttackStyle = "Acid Spit";
+            this.HitChance = 30;
             this.Dialog = "Batang 90's lang nakakalamm.";
         }
 
@@ -80,6 +89,7 @@ namespace HolyBerry
             this.HP = 30;
             this.AttackDamage = 8;
             this.AttackStyle = "Claw Swipe";
+            this.HitChance = 40;
             this.Dialog = "Alammm mo haaaaaaaaa.";
         }
 
@@ -94,6 +104,7 @@ namespace HolyBerry
             this.HP = 40;
             this.AttackDamage = 10;
             this.AttackStyle = "Hex Beam";
+            this.HitChance = 50;
             this.Dialog = "Ampuki nabasa.";
         }
 
@@ -108,6 +119,7 @@ namespace HolyBerry
             this.HP = 50;
             this.AttackDamage = 12;
             this.AttackStyle = "Scythe Slash";
+            this.HitChance = 65;
             this.Dialog = "Babad na babad nako dito oh.";
         }
 
@@ -122,6 +134,7 @@ namespace HolyBerry
             this.HP = 0;
             this.AttackDamage = 15;
             this.AttackStyle = "Cherry Bomb";
+            this.HitChance = 75;
             this.Dialog = "Arayyy koooooo.";
         }
 

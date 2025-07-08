@@ -10,12 +10,15 @@ namespace HolyBerry
     {
         public string Name { get; set; }
         public int HP { get; set; }
+        public bool IsAlive { get; set; } = true;
+        public int HitChance {  get; set; }
 
         public Inventory inventory { get; set; }
         
         public Player(string Name)
         {
             this.Name = Name;
+            this.HitChance = 60;
             HP = 20;
             inventory = new Inventory();
             Console.WriteLine($"Greetings! {Name}");
@@ -39,21 +42,22 @@ namespace HolyBerry
         {
             //should accept an enemy and then attack that enemy
             //enemy health - attack dmg depends on the weapon
-            enemy.takeDamaege(10);
+            enemy.takeDamaege(5);
+            Console.WriteLine($"You have successfully attacked {enemy.Name} with 10 damgage");
 
         }
 
-        public bool isAlive()
-        {
-            if (HP <= 0)
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
-        }
+        //public bool isAlive()
+        //{
+        //    if (HP <= 0)
+        //    {
+        //        return false;
+        //    }
+        //    else
+        //    {
+        //        return true;
+        //    }
+        //}
 
     }
 }
