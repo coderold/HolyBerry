@@ -20,25 +20,16 @@ namespace HolyBerry
             new Graphics().PrintTitle();
             player.PrintPlayerStats();
 
-            string prompt = "MagjakolMagjakolMagjakolMagjakolMagjakolMagjakolMagjakolMagjakol\n";
-            string[] options = { "Magjakol", "Magjakol", "Magjakol" };
+            Console.ReadKey();
+            Console.Clear();
 
-            CustomMenu pepe = new CustomMenu(prompt, options);
-            int selectedIndex = pepe.Run();
+            Enemy grapeslime = new GrapeSlime(HP: 20,AttackDamage: 10);
 
-            switch(selectedIndex)
-            {
-                case 0:
-                    Console.WriteLine("jakol1");
-                    break;
-                case 1:
-                    Console.WriteLine("jakol2");
-                    break;
-                case 2:
-                    Console.WriteLine("jakol3");
-                    break;
-            }
+            grapeslime.Attack(player);
 
+            Console.ReadKey();
+
+            player.Attack(grapeslime);
         }
 
         

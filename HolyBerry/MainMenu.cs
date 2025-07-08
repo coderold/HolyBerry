@@ -35,17 +35,5 @@ namespace HolyBerry
 
         }
 
-        private void RunGame()
-        {
-
-        }
-
-        private void ExGame()
-        {
-
-        }
-
-        
-
     }
 }

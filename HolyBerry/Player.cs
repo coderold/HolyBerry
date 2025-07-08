@@ -29,5 +29,19 @@ namespace HolyBerry
             
         }
 
+        public void takeDamage(int damage)
+        {
+            HP -= damage;
+            Console.WriteLine($"You've been Hit with a {damage}dmg");
+        }
+
+        public void Attack(Enemy enemy)
+        {
+            //should accept an enemy and then attack that enemy
+            //enemy health - attack dmg depends on the weapon
+            enemy.takeDamaege(10);
+
+        }
+
     }
 }
