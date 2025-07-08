@@ -43,5 +43,17 @@ namespace HolyBerry
 
         }
 
+        public bool isAlive()
+        {
+            if (HP <= 0)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
     }
 }

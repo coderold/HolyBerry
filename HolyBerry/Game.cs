@@ -23,7 +23,7 @@ namespace HolyBerry
             Console.ReadKey();
             Console.Clear();
 
-            Enemy grapeslime = new GrapeSlime(HP: 20,AttackDamage: 10);
+            Enemy grapeslime = new GrapeSlime();
 
             grapeslime.Attack(player);
 
