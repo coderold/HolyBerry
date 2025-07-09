@@ -24,7 +24,7 @@ namespace HolyBerry
         public void takeDamaege(int damage)
         {
             HP -= damage;
-            Console.WriteLine($"{Name} has taken damage.");
+            //Console.WriteLine($"{Name} has taken damage.");
 
             if( HP <= 0)
             {

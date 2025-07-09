@@ -8,53 +8,60 @@ namespace HolyBerry
 {
     public class Battle
     {
+        private Player player;
+        private Enemy enemy;
+        private bool runBattleLoop = true;
+
         public Battle(Player player, Enemy enemy)
         {
-            int round = 1;
-            Console.WriteLine(new Graphics().GrapeSlime());
+            this.player = player;
+            this.enemy = enemy;
+            
+            //Console.WriteLine($"{enemy.Name} Appears!");
 
-            while(player.IsAlive && enemy.IsAlive)
+            BattleLoop();
+            
+        }
+
+        private void BattleLoop()
+        {
+
+            string prompt = $"\n{new Graphics().GrapeSlime()}" +
+                            $"\n{player.Name}: {player.HP} HP" +
+                            $"\n{enemy.Name}: {enemy.HP} HP" +
+                            $"\n\nYour Turn:";
+            string[] choices = { "Attack", "Use Item"};
+
+            while (runBattleLoop)
             {
-                Console.WriteLine($"ROUND: {round}\n");
 
-                Console.WriteLine($"{player.Name}: {player.HP}");
-                Console.WriteLine($"{enemy.Name}: {enemy.HP}\n");
+                //Console.WriteLine($"{player.Name}: {player.HP}");
+                //Console.WriteLine($"{enemy.Name}: {enemy.HP}\n");
 
-                if (doesAttackHit(player.HitChance))
+                CustomMenu menu = new CustomMenu(prompt, choices);
+
+                int selectedIndex = menu.Run();
+
+                switch (selectedIndex)
                 {
-                    player.Attack(enemy);
-
-                    if (!enemy.IsAlive)
-                    {
-                        Console.WriteLine("enemy ded");
+                    case 0:
+                        PlayerAttack();
+                        CheckAttackResult();
                         break;
-                    }
 
                 }
-                else
-                {
-                    Console.WriteLine("Your Attack Failed!");
-                }
 
-                if (doesAttackHit(enemy.HitChance))
+                if (enemy.IsAlive)
                 {
-                    enemy.Attack(player);
-
-                    if (!player.IsAlive)
-                    {
-                        Console.WriteLine("You ded!");
-                        break;
-                    }
+                    EnemyTurn();
                 }
-                else
-                {
-                    Console.WriteLine($"{enemy.Name} Attack Failed!");
-                }
+                
 
                 Console.ReadKey();
                 Console.Clear();
-                round++;
+
             }
+
         }
 
         private bool doesAttackHit(int HitChance)
@@ -68,6 +75,46 @@ namespace HolyBerry
             else
             {
                 return false;
+            }
+        }
+
+        private void CheckAttackResult()
+        {
+            runBattleLoop = player.IsAlive && enemy.IsAlive? true : false;
+        }
+
+        private void PlayerAttack()
+        {
+            if (doesAttackHit(player.HitChance))
+            {
+                player.Attack(enemy);
+
+                if (enemy.HP <= 0)
+                {
+                    Console.WriteLine(new Graphics().YouWin());
+                }
+
+            }
+            else
+            {
+                Console.WriteLine("Your Attack Failed!");
+            }
+        }
+
+        private void EnemyTurn()
+        {
+            if (doesAttackHit(enemy.HitChance))
+            {
+                enemy.Attack(player);
+
+                if (!player.IsAlive)
+                {
+                    Console.WriteLine("You ded!");
+                }
+            }
+            else
+            {
+                Console.WriteLine($"{enemy.Name} Attack Failed!");
             }
         }
     }
