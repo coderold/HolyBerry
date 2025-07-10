@@ -17,7 +17,11 @@ namespace HolyBerry
             this.player = player;
             this.enemy = enemy;
             
-            //Console.WriteLine($"{enemy.Name} Appears!");
+            Console.WriteLine($"{enemy.Name} Appears!\n");
+            Console.WriteLine(enemy.Illustration);
+            Console.WriteLine("\nPress any key to start the battle");
+            Console.ReadKey();
+            Console.Clear();
 
             BattleLoop();
             
@@ -25,22 +29,22 @@ namespace HolyBerry
 
         private void BattleLoop()
         {
-
-            string prompt = $"\n{new Graphics().GrapeSlime()}" +
-                            $"\n{player.Name}: {player.HP} HP" +
-                            $"\n{enemy.Name}: {enemy.HP} HP" +
-                            $"\n\nYour Turn:";
-            string[] choices = { "Attack", "Use Item"};
+            
 
             while (runBattleLoop)
             {
+                string prompt = $"\n{enemy.Illustration}" +
+                                $"\n{player.Name}: {player.HP} HP" +
+                                $"\n{enemy.Name}: {enemy.HP} HP" +
+                                $"\n\nYour Turn:\n";
 
-                //Console.WriteLine($"{player.Name}: {player.HP}");
-                //Console.WriteLine($"{enemy.Name}: {enemy.HP}\n");
+                string[] choices = { "Attack", "Use Item" };
 
                 CustomMenu menu = new CustomMenu(prompt, choices);
 
                 int selectedIndex = menu.Run();
+
+                Console.Clear();
 
                 switch (selectedIndex)
                 {
@@ -56,7 +60,7 @@ namespace HolyBerry
                     EnemyTurn();
                 }
                 
-
+                Console.WriteLine("\nPress any key to continue...");
                 Console.ReadKey();
                 Console.Clear();
 
@@ -91,13 +95,15 @@ namespace HolyBerry
 
                 if (enemy.HP <= 0)
                 {
+                    Console.Clear() ;
+                    Console.WriteLine($"\n{enemy.Name} has been defeated!");
                     Console.WriteLine(new Graphics().YouWin());
                 }
 
             }
             else
             {
-                Console.WriteLine("Your Attack Failed!");
+                Console.WriteLine("\n- Your Attack Failed!");
             }
         }
 
@@ -109,12 +115,14 @@ namespace HolyBerry
 
                 if (!player.IsAlive)
                 {
-                    Console.WriteLine("You ded!");
+                    Console.WriteLine(new Graphics().YouLose());
+                    Console.WriteLine("\n\nThank you for Playing!!");
+                    Environment.Exit(0);
                 }
             }
             else
             {
-                Console.WriteLine($"{enemy.Name} Attack Failed!");
+                Console.WriteLine($"\n- {enemy.Name} Attack Failed!");
             }
         }
     }

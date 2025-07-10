@@ -35,7 +35,7 @@ namespace HolyBerry
         public void takeDamage(int damage)
         {
             HP -= damage;
-            Console.WriteLine($"You've been Hit with a {damage}dmg");
+            //Console.WriteLine($"You've been Hit with a {damage}dmg");
         }
 
         public void Attack(Enemy enemy)
@@ -43,7 +43,7 @@ namespace HolyBerry
             //should accept an enemy and then attack that enemy
             //enemy health - attack dmg depends on the weapon
             enemy.takeDamaege(5);
-            Console.WriteLine($"You have successfully attacked {enemy.Name} with 10 damgage");
+            Console.WriteLine($"\n- You attacked {enemy.Name} with 5 damgage");
 
         }
 

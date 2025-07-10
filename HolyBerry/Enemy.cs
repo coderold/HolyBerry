@@ -15,10 +15,12 @@ namespace HolyBerry
         public string Dialog { get; set; } = "";
         public int HitChance { get; set; }
         public bool IsAlive { get; set; } = true;
+        public string Illustration { get; set; } = "";
 
         public void Attack(Player player)
         {
             player.takeDamage(AttackDamage);
+            Console.WriteLine($"\n- {this.Name} attacked you with {this.AttackStyle} for {this.AttackDamage} dmg.");
         }
 
         public void takeDamaege(int damage)
@@ -37,17 +39,6 @@ namespace HolyBerry
             Console.WriteLine($"{Name}: {Dialog}");
         }
 
-        //public bool isAlive()
-        //{
-        //    if (HP <= 0)
-        //    {
-        //        return false;
-        //    }
-        //    else
-        //    {
-        //        return true;
-        //    }
-        //}
     }
 
     public class GrapeSlime: Enemy
@@ -61,6 +52,7 @@ namespace HolyBerry
             this.AttackStyle = "Melee Jab";
             this.HitChance = 25;
             this.Dialog = "Legends lang nakakaalm haha.";
+            this.Illustration = new Graphics().GrapeSlime();
         }
 
     }

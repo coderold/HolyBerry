@@ -6,6 +6,7 @@ namespace HolyBerry
     {
         public static void Main(string[] args)
         { 
+            Console.CursorVisible = false;
             new MainMenu();
         }
     }
