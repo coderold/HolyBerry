@@ -27,6 +27,16 @@ namespace HolyBerry
             Console.WriteLine($"- {player.Name} used a {type}: {name}");
         }
 
+        public void Reward()
+        {
+            this.quantity++;
+            Console.WriteLine("🧪🔮💫");
+            Console.WriteLine($"Congratulations! You found a {this.name}");
+            Console.WriteLine("\nPress any key to continue...");
+            Console.ReadKey();
+            Console.Clear();
+        }
+
     }
 
     public class HolyBerry: Item
@@ -54,7 +64,7 @@ namespace HolyBerry
             this.name = "Grape Elixir";
             this.type = "Buff Item";
             this.description = "Grants you +5 damage.";
-            this.quantity = 1;
+            this.quantity = 0;
             player.inventory.AddItem(this);
 
         }

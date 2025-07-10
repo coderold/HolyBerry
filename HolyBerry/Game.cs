@@ -24,11 +24,29 @@ namespace HolyBerry
             Console.Clear();
 
             Enemy grapeslime = new GrapeSlime();
+            
 
-            new HolyBerry(player);
-            new GrapeElixir(player);
+            HolyBerry holyBerry = new HolyBerry(player);
+            GrapeElixir grapeElixir = new GrapeElixir(player);
 
             new Battle(player, grapeslime);
+            holyBerry.Reward();
+
+            new Battle(player, new RottenRaspberry());
+            grapeElixir.Reward();
+
+            new Battle(player, new BlackberryBeast());
+            holyBerry.Reward();
+
+            new Battle(player, new BlueberryWitch());
+            grapeElixir.Reward();
+
+            new Battle(player, new StrawberryReaper());
+            holyBerry.Reward();
+
+            new Battle(player, new LordCherryDoom());
+            grapeElixir.Reward();
+
         }
 
         
