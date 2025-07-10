@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -54,6 +55,10 @@ namespace HolyBerry
                         CheckAttackResult();
                         break;
 
+                    case 1:
+                        Console.Clear();
+                        UseItem();
+                        break;
                 }
 
                 if (enemy.IsAlive)
@@ -67,6 +72,29 @@ namespace HolyBerry
 
             }
 
+        }
+
+        private void UseItem()
+        {
+            
+            string[] choices = player.inventory.getItems();
+
+            if (choices.Length > 0)
+            {
+                CustomMenu menu = new CustomMenu("Items:", choices);
+
+                int selectedIndex = menu.Run();
+                Console.Clear();
+                player.inventory.items[selectedIndex].Use();
+            }
+            else
+            {
+                player.inventory.ListItems();
+                Console.WriteLine("\nPress any key to go back...");
+                Console.ReadKey();
+                Console.Clear();
+                BattleLoop();
+            }
         }
 
         private bool doesAttackHit(int HitChance)

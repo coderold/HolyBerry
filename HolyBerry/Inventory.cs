@@ -8,7 +8,7 @@ namespace HolyBerry
 {
     public class Inventory()
     {
-        private List<Item> items = new List<Item>();
+        public List<Item> items = new List<Item>();
 
         public void AddItem(Item item)
         {
@@ -33,12 +33,32 @@ namespace HolyBerry
                 for (int i = 0; i < items.Count; i++)
                 {
                     Console.WriteLine($"{i + 1}. {items[i].name}");
+                    
                 }
             }
             else
             {
                 Console.WriteLine("\nInventory: \nYou dont have any items at the moment.");
             }
+        }
+
+        public string[] getItems()
+        {
+            if (items.Count < 0)
+            {
+                return new string[0];
+            }
+            else
+            {
+                string[] _items = new string[items.Count];
+                for (int i = 0; i < items.Count; i++)
+                {
+                    _items[i] = items[i].name;
+                }
+
+                return _items;
+            }
+            
         }
     }
 }

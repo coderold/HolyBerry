@@ -12,6 +12,7 @@ namespace HolyBerry
         public int HP { get; set; }
         public bool IsAlive { get; set; } = true;
         public int HitChance {  get; set; }
+        public int AttackDamage { get; set; }
 
         public Inventory inventory { get; set; }
         
@@ -19,7 +20,8 @@ namespace HolyBerry
         {
             this.Name = Name;
             this.HitChance = 60;
-            HP = 20;
+            this.AttackDamage = 5;
+            this.HP = 20;
             inventory = new Inventory();
             Console.WriteLine($"Greetings! {Name}");
         }
@@ -42,8 +44,8 @@ namespace HolyBerry
         {
             //should accept an enemy and then attack that enemy
             //enemy health - attack dmg depends on the weapon
-            enemy.takeDamaege(5);
-            Console.WriteLine($"\n- You attacked {enemy.Name} with 5 damgage");
+            enemy.takeDamaege(AttackDamage);
+            Console.WriteLine($"\n- You attacked {enemy.Name} with {AttackDamage} damgage");
 
         }
 

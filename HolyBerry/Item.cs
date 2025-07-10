@@ -6,20 +6,60 @@ using System.Threading.Tasks;
 
 namespace HolyBerry
 {
-    public class Item
+    public abstract class Item
     {
-        public string name;
-        public string type;
-        
-        public Item(string name, string type)
-        {
-            this.name = name;
-            this.type = type;
+        public string name { get; set; } = "";
+        public string type { get; set; } = "";
+        public string description { get; set; }
 
+        public Player player { get; set; }
+
+        public Item(Player player)
+        {
+            this.player = player;
         }
+
+        public abstract void effect();
+        
         public void Use()
         {
-            Console.WriteLine($"{name} is used!");
+            this.effect();
+            Console.WriteLine($"- {player.Name} used a {type}: {name}");
         }
+
+    }
+
+    public class HolyBerry: Item
+    {
+        public HolyBerry(Player player) : base(player)
+        {
+            this.name = "Holy Berry";
+            this.type = "Potion";
+            this.description = "Restores 30 HP";
+            player.inventory.AddItem(this);
+
+        }
+        public override void effect()
+        {
+            player.HP += 30;
+        }
+
+    }
+
+    public class GrapeElixir : Item
+    {
+        public GrapeElixir(Player player) : base(player)
+        {
+            this.name = "Grape Elixir";
+            this.type = "Buff Item";
+            this.description = "Grants you +5 damage.";
+            player.inventory.AddItem(this);
+
+        }
+        public override void effect()
+        {
+            player.AttackDamage += 5;
+        }
+
     }
 }

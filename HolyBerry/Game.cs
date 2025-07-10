@@ -25,6 +25,9 @@ namespace HolyBerry
 
             Enemy grapeslime = new GrapeSlime();
 
+            new HolyBerry(player);
+            new GrapeElixir(player);
+
             new Battle(player, grapeslime);
         }
 
