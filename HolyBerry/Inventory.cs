@@ -42,23 +42,5 @@ namespace HolyBerry
             }
         }
 
-        public string[] getItems()
-        {
-            if (items.Count < 0)
-            {
-                return new string[0];
-            }
-            else
-            {
-                string[] _items = new string[items.Count];
-                for (int i = 0; i < items.Count; i++)
-                {
-                    _items[i] = items[i].name;
-                }
-
-                return _items;
-            }
-            
-        }
     }
 }

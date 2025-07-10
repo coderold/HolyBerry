@@ -4,6 +4,7 @@ using System.Linq;
 using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace HolyBerry
 {
@@ -77,7 +78,7 @@ namespace HolyBerry
         private void UseItem()
         {
             
-            string[] choices = player.inventory.getItems();
+            string[] choices = itemChoices();
 
             if (choices.Length > 0)
             {
@@ -85,7 +86,12 @@ namespace HolyBerry
 
                 int selectedIndex = menu.Run();
                 Console.Clear();
-                player.inventory.items[selectedIndex].Use();
+                
+                string itemName = choices[selectedIndex];
+
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
+                player.inventory.items.Find(x => x.name == itemName).Use();
+#pragma warning restore CS8602 // Dereference of a possibly null reference.
             }
             else
             {
@@ -95,6 +101,23 @@ namespace HolyBerry
                 Console.Clear();
                 BattleLoop();
             }
+        }
+
+        private string[] itemChoices()
+        {
+            List<Item> items = player.inventory.items;
+            LinkedList<string> choices = new LinkedList<string>();
+
+            for (int i = 0; i < items.Count; i++)
+            {
+                if (items[i].quantity > 0)
+                {
+                    choices.AddLast(items[i].name);
+                }
+
+            }
+
+            return choices.ToArray();
         }
 
         private bool doesAttackHit(int HitChance)

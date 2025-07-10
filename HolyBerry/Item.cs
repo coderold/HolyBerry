@@ -11,7 +11,7 @@ namespace HolyBerry
         public string name { get; set; } = "";
         public string type { get; set; } = "";
         public string description { get; set; }
-
+        public int quantity { get; set; }
         public Player player { get; set; }
 
         public Item(Player player)
@@ -36,6 +36,7 @@ namespace HolyBerry
             this.name = "Holy Berry";
             this.type = "Potion";
             this.description = "Restores 30 HP";
+            this.quantity = 0;
             player.inventory.AddItem(this);
 
         }
@@ -53,6 +54,7 @@ namespace HolyBerry
             this.name = "Grape Elixir";
             this.type = "Buff Item";
             this.description = "Grants you +5 damage.";
+            this.quantity = 1;
             player.inventory.AddItem(this);
 
         }
