@@ -19,6 +19,7 @@ namespace HolyBerry
             
             Console.WriteLine($"{enemy.Name} Appears!\n");
             Console.WriteLine(enemy.Illustration);
+            Console.WriteLine($"- {enemy.Name}: {enemy.Dialog}");
             Console.WriteLine("\nPress any key to start the battle");
             Console.ReadKey();
             Console.Clear();

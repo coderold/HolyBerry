@@ -26,7 +26,6 @@ namespace HolyBerry
         public void takeDamaege(int damage)
         {
             HP -= damage;
-            //Console.WriteLine($"{Name} has taken damage.");
 
             if( HP <= 0)
             {
@@ -68,6 +67,7 @@ namespace HolyBerry
             this.AttackStyle = "Acid Spit";
             this.HitChance = 30;
             this.Dialog = "Batang 90's lang nakakalamm.";
+            this.Illustration = new Graphics().RottenRaspberry();
         }
 
     }
@@ -83,6 +83,7 @@ namespace HolyBerry
             this.AttackStyle = "Claw Swipe";
             this.HitChance = 40;
             this.Dialog = "Alammm mo haaaaaaaaa.";
+            this.Illustration= new Graphics().BlackberryBeast();
         }
 
     }
@@ -98,6 +99,7 @@ namespace HolyBerry
             this.AttackStyle = "Hex Beam";
             this.HitChance = 50;
             this.Dialog = "Ampuki nabasa.";
+            this.Illustration = new Graphics().BlueberryWitch();
         }
 
     }
@@ -113,6 +115,7 @@ namespace HolyBerry
             this.AttackStyle = "Scythe Slash";
             this.HitChance = 65;
             this.Dialog = "Babad na babad nako dito oh.";
+            this.Illustration = new Graphics().StrawberryReaper();
         }
 
     }
@@ -128,6 +131,7 @@ namespace HolyBerry
             this.AttackStyle = "Cherry Bomb";
             this.HitChance = 75;
             this.Dialog = "Arayyy koooooo.";
+            this.Illustration = new Graphics().LordCherryDoom();
         }
 
     }

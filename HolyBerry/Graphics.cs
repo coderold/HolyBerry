@@ -32,24 +32,32 @@ namespace HolyBerry
 
         public string GrapeSlime()
         {
-            return "        ▓▓▓▓▓▓▓" +
-                "\r\n    ▓▓░░    ░░▓▓" +
-                "\r\n   ▓░  ●  ░  ● ░▓" +
-                "\r\n   ▓░    ▄▄     ░▓" +
-                "\r\n    ▓░  ▀▀    ░▓" +
-                "\r\n     ▓▓░░░░░░▓▓" +
-                "\r\n      ████████\r\n";
+            return "      ▓▓▓▓▓▓▓\r\n    ▓▓░░    ░░▓▓\r\n   ▓░  ●  ░  ● ░▓\r\n   ▓░    ▄▄     ░▓\r\n    ▓░  ▀▀    ░▓\r\n     ▓▓░░░░░░▓▓\r\n      ████████\r\n";
         }
 
         public string RottenRaspberry()
         {
-            return  "          ████████      " +
-                    "\r\n   ██░ x  ░ x  ██   " +
-                    "\r\n  ██░    ██     ░██ " +
-                    "\r\n  ██░   ▀▀▀▀    ░██ " +
-                    "\r\n    ▀▀████████▀▀    " +
-                    "\r\n      ▒▒▒▒▒▒▒▒      " +
-                    "\r\n     \r\n";
+            return "     ████████\r\n   ██░ x  ░ x ██   \r\n  ██░   ██     ░██\r\n  ██░  ▀▀▀▀    ░██\r\n   ▀▀████████▀▀\r\n     ▒▒▒▒▒▒▒▒\r\n    \r\n";
+        }
+
+        public string BlackberryBeast()
+        {
+            return "     █████████\r\n   ██░ ●   ░ ● ██   \r\n  ██░   ████    ░██\r\n  ██░  ▄████▄   ░██\r\n   ██░ ▀▀▀▀▀▀ ░██\r\n    ▀▀████████▀▀\r\n     ░░╔════╗░░\r\n        ░░░░\r\n";
+        }
+
+        public string BlueberryWitch()
+        {
+            return "      ░░████░░\r\n     ██░ o  ░o ██   \r\n    ██░   ██    ░██\r\n   ██░  ░▀▀▀░░  ░██\r\n  ▓▓░  ║██║██║  ░▓▓\r\n   ▀▀██████████▀▀\r\n      ║    ║\r\n     ████████\r\n";
+        }
+
+        public string StrawberryReaper()
+        {
+            return "     ██████████\r\n   ██░  x   ░ x ██  \r\n  ██░   ▓▓▓▓    ░██\r\n  ██░   ▓▓▓▓    ░██\r\n   ▓▓░ ░▀▀▀▀ ░ ░▓▓\r\n    ▀▀████████▀▀\r\n     ║█╔════╗█║\r\n     ║█║███║█║\r\n      ║     ║\r\n     ║║     ║║\r\n     ╚╝     ╚╝\r\n";
+        }
+
+        public string LordCherryDoom()
+        {
+            return "      ██████████\r\n    ██░  ⚉   ░ ⚉ ██   \r\n   ██░    ████    ░██\r\n  ██░   ░████░░   ░██\r\n  ██░  ░░▀▀▀▀░░   ░██\r\n   ▓▓▓░ ▓▓▓▓▓▓ ░ ▓▓▓\r\n     ▓▓████████▓▓\r\n     ██╔══════╗██\r\n     ██║██████║██\r\n     ██║      ║██\r\n     ╚═╝      ╚═╝\r\n";
         }
 
         public string YouWin()
