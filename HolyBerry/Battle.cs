@@ -37,8 +37,8 @@ namespace HolyBerry
             while (runBattleLoop)
             {
                 string prompt = $"\n{enemy.Illustration}" +
-                                $"\n{player.Name}: {player.HP} HP" +
-                                $"\n{enemy.Name}: {enemy.HP} HP" +
+                                $"\n{player.Name}: {player.HP} HP - {player.AttackDamage} DMG" +
+                                $"\n{enemy.Name}: {enemy.HP} HP - {enemy.AttackDamage} DMG" +
                                 $"\n\nYour Turn:\n";
 
                 string[] choices = { "Attack", "Use Item" };
@@ -49,6 +49,7 @@ namespace HolyBerry
 
                 Console.Clear();
 
+                Console.WriteLine(new Graphics().Result());
                 switch (selectedIndex)
                 {
                     case 0:
@@ -87,7 +88,9 @@ namespace HolyBerry
                 int selectedIndex = menu.Run();
                 Console.Clear();
                 
-                string itemName = choices[selectedIndex];
+                string[] selected = choices[selectedIndex].Split();
+
+                string itemName = string.Join(" ", selected.Take(2));
 
 #pragma warning disable CS8602 // Dereference of a possibly null reference.
                 player.inventory.items.Find(x => x.name == itemName).Use();
@@ -112,7 +115,7 @@ namespace HolyBerry
             {
                 if (items[i].quantity > 0)
                 {
-                    choices.AddLast(items[i].name);
+                    choices.AddLast(items[i].name + " - " + items[i].quantity);
                 }
 
             }

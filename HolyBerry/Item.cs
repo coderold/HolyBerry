@@ -10,7 +10,7 @@ namespace HolyBerry
     {
         public string name { get; set; } = "";
         public string type { get; set; } = "";
-        public string description { get; set; }
+        public string description { get; set; } = "";
         public int quantity { get; set; }
         public Player player { get; set; }
 
@@ -23,15 +23,17 @@ namespace HolyBerry
         
         public void Use()
         {
+            Console.WriteLine(new Graphics().Result());
             this.effect();
-            Console.WriteLine($"- {player.Name} used a {type}: {name}");
+            this.quantity--;
+            Console.WriteLine($"\n- {player.Name} used a {type}: {name}");
         }
 
         public void Reward()
         {
             this.quantity++;
-            Console.WriteLine("🧪🔮💫");
-            Console.WriteLine($"Congratulations! You found a {this.name}");
+            Console.WriteLine(new Graphics().Wow());
+            Console.WriteLine($"Congratulations! You found a {this.name} ({this.description})");
             Console.WriteLine("\nPress any key to continue...");
             Console.ReadKey();
             Console.Clear();

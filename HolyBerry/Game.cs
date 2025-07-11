@@ -45,7 +45,6 @@ namespace HolyBerry
             holyBerry.Reward();
 
             new Battle(player, new LordCherryDoom());
-            grapeElixir.Reward();
 
         }
 
